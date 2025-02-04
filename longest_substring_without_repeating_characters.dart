@@ -15,7 +15,7 @@ class Solution {
           temp[s[start]] = temp[s[start]]! - 1;
           start++;
         }
-      } else {}
+      }
       end++;
     }
     return end - start > count ? end - start : count;
@@ -24,5 +24,5 @@ class Solution {
 
 void main() {
   Solution sol = new Solution();
-  print("Length of Longest Substring: ${sol.lengthOfLongestSubstring(' ')}");
+  print("Length of Longest Substring: ${sol.lengthOfLongestSubstring('pwwkew')}");
 }
