@@ -113,20 +113,21 @@ class Solution {
         n--;
       }
       end++;
-      if (n == 0) {
+      while (n == 0) {
         if (end - start < count) {
           count = end - start;
           beginPointer = start;
           endPointer = end;
         }
-        originalMap[s[start]] = originalMap[s[start]]! - 1;
-        n--;
-        start++;
-        while (originalMap[s[start]] != null &&
-            originalMap[s[start]] == 0 &&
-            start <= end) {
-          start++;
+        if (originalMap[s[start]] != null && originalMap[s[start]] == 0) {
+          print("start: $start");
+          originalMap[s[start]] = originalMap[s[start]]! + 1;
+          n++;
         }
+        start++;
+        // if (originalMap[s[start]] == null && start <= end) {
+        //   start++;
+        // }
       }
     }
 
@@ -140,6 +141,6 @@ class Solution {
 void main() {
   Solution sol = new Solution();
   print(
-    "Minimum Window String: ${sol.minWindow("aaaaaaaaaaaabbbbbcdd", "abcdd")}",
+    "Minimum Window String: ${sol.minWindow("ADOBECODEBANC", "ABC")}",
   );
 }
